@@ -17,11 +17,15 @@ fetch('/wasm/test.wasm').then(response =>
   WebAssembly.instantiate(bytes, {env: env})
 ).then(obj => {
   mod = obj.instance;
-  self.postMessage(1);
+  self.postMessage(0);
 });
 
 
 onmessage = function(e) {
   console.log('Start wasm worker.');
-  console.log(mod.exports._bake_pi());
+  var startTime = performance.now();
+  var res = mod.exports._bake_pi();
+  var endTime = performance.now();
+  console.log(res);
+  self.postMessage([res, endTime - startTime]);
 }
