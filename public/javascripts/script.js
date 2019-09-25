@@ -1,20 +1,8 @@
-const env = {
-  memoryBase: 0,
-  tableBase: 0,
-  memory: new WebAssembly.Memory({
-    initial: 256
-  }),
-  table: new WebAssembly.Table({
-    initial: 0,
-    element: 'anyfunc'
-  })
-}
-
-fetch('/wasm/test.wasm').then(response =>
-  response.arrayBuffer()
-).then(bytes =>
-  WebAssembly.instantiate(bytes, {env: env})
-).then(obj => {
-  console.log(obj.instance.exports._bake_pi());
+const wasmWorker = new Worker('/javascripts/worker_wasm.js');
+wasmWorker.addEventListener('message', (message) => {
+  wasmWorker.postMessage('');
 });
+const apiWorker = new Worker('/javascripts/worker_api.js');
+apiWorker.postMessage('');
 
+console.log(window);
