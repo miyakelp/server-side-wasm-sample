@@ -1,6 +1,3 @@
-<html>
-  <head>
-    <script>
 const env = {
   memoryBase: 0,
   tableBase: 0,
@@ -13,16 +10,11 @@ const env = {
   })
 }
 
-fetch('test.wasm').then(response =>
+fetch('/wasm/test.wasm').then(response =>
   response.arrayBuffer()
 ).then(bytes =>
   WebAssembly.instantiate(bytes, {env: env})
 ).then(obj => {
   console.log(obj.instance.exports._very_heavy_calculation(10));
 });
-    </script>
-  </head>
 
-  <body>
-  </body>
-</html>
