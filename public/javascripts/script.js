@@ -4,5 +4,6 @@ wasmWorker.addEventListener('message', (message) => {
 });
 const apiWorker = new Worker('/javascripts/worker_api.js');
 apiWorker.postMessage('');
+const jsWorker = new Worker('/javascripts/worker_js.js');
+jsWorker.postMessage('');
 
-console.log(window);
