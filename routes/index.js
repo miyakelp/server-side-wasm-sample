@@ -27,7 +27,7 @@ router.get('/', function(req, res, next) {
 
 
 router.get('/pi', function(req, res, next) {
-  res.render('index', { title: mod.exports._very_heavy_calculation(10) });
+  res.status(200).send('{"pi":' + mod.exports._bake_pi() + '}');
 });
 
 module.exports = router;

@@ -15,6 +15,6 @@ fetch('/wasm/test.wasm').then(response =>
 ).then(bytes =>
   WebAssembly.instantiate(bytes, {env: env})
 ).then(obj => {
-  console.log(obj.instance.exports._very_heavy_calculation(10));
+  console.log(obj.instance.exports._bake_pi());
 });
 
