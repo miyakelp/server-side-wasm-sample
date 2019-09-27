@@ -1,7 +1,7 @@
 # server-side-wasm-sample
 
 こちらのブログ記事のサンプルです。
-https://www.gmo-jisedai.com/blog/dream_of_wasm/
+https://www.gmo-jisedai.com/blog/dream-of-wasm/
 
 サンプルとしてコンパイル済みのwasmファイルもリポジトリに含めているので、Emscriptenの環境を準備しなくても試すことができます。
 
